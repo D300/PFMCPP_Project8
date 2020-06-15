@@ -14,25 +14,25 @@ Build/Run often with this task to make sure you're not breaking the code with ea
     it's very easy to mess this task up. 
 
 your task: 
-    0) get familiar with the classes. 
+    0) get familiar with the classes.  x
 
-    1) Fix the include errors. 
+    1) Fix the include errors. x
 
     2) HighwayPatrol can check the speed of vehicles on the highway. 
-        make this happen without adding getters to the Highway or Vehicle class
+        make this happen without adding getters to the Highway or Vehicle class -x
 
     3) implement the Highway::addVehicleInternal 
-        this function should call the non-evasive member function of the derived class, so use the technique shown in the Casting video.
+        this function should call the non-evasive member function of the derived class, so use the technique shown in the Casting video. - >dynamic_cast<>(expression) - x
 
     4) implement the Highway::removeVehicleInternal
-        this function should call the evasive member function of the derived class, if it has one. use the technique shown in the Casting video.
+        this function should call the evasive member function of the derived class, if it has one. use the technique shown in the Casting video. - x
 
     5) Add a Truck type
         semi-trucks don't evade when they're pulled over, unlike cars and motorcycles.  
 
-    6) Add some Cars to the Highway
-    7) Add some Motorcycles to the Highway
-    8) Add some SemiTrucks to the highway. 
+    6) Add some Cars to the Highway -x
+    7) Add some Motorcycles to the Highway -x
+    8) Add some SemiTrucks to the highway. -x
 
     9) clear any warnings as best you can, based on what you've learned in the previous projects
         see the note in main() about implementing the special member functions.
@@ -66,7 +66,7 @@ int main()
     std::vector<Car> cars;
     std::vector<Motorcycle> motorcycles;
     std::vector<SemiTruck> trucks;
-    
+
     /*
      instantiating vectors like this creates unexpected copies during the construction process:
      
@@ -86,9 +86,9 @@ int main()
      For now, these special member functions will be implemented using the compiler's default implementation.
      the Vehicle class shows how to do this.
      
-     You must implement these special member functions for all of the classes that derive from Vehicle.
+     You must implement these special member functions for all of the classes that derive from Vehicle. - x
 
-     v-table warnings can be resolved by eliminating header file implementations.
+     v-table warnings can be resolved by eliminating header file implementations. - x
      */
     
     /*
@@ -109,17 +109,40 @@ int main()
     /*
      construct 2 more Car instances via emplace_back.
      */
+     cars.emplace_back("dude");
+     cars.emplace_back("idiot");
     
     /*
      now reserve and emplace_back your Trucks and Motorcyles
      */
+     motorcycles.reserve(2);
+     trucks.reserve(2);
+     
+    motorcycles.emplace_back("patricksBike");
+    motorcycles.emplace_back("patricksBike2");
+
+    trucks.emplace_back("larsTruck");
+    trucks.emplace_back("larsTruck2");
     
-    
-    
-    
-    assert(false);
+    //assert(false);
     //add the cars, motorcycles and trucks to the highway using range-based for() loops: for( element : vec ) { ... }
     //be careful to not accidentally make element copies when iterating.
+
+
+    for (auto& c : cars )
+    {
+        highway.addVehicle(&c);
+    }
+
+    for (auto& t : trucks )
+    {
+        highway.addVehicle(&t);
+    }
+
+    for (auto& m : motorcycles)
+    {
+        highway.addVehicle(&m);
+    }
     
     HighwayPatrol cop;
     cop.scanHighway(&highway);

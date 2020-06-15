@@ -9,7 +9,7 @@ struct Vehicle
     
     virtual ~Vehicle() = default;
     Vehicle(const Vehicle&) = default;
-    Vehicle& operator=(const Vehicle&) = default;
+    Vehicle& operator=(const Vehicle&) = default; // that means the = operator doesnt copy but passes a reference as default?
     
     virtual void setSpeed(int s)
     {

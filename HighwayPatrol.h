@@ -1,11 +1,17 @@
 #pragma once 
 
+#include "Highway.h"
 #include "Vehicle.h"
 
-struct HighwayPatrol : Vehicle 
+//struct Highway;
+struct HighwayPatrol : public Vehicle 
 {
     HighwayPatrol();
-    void scanHighway(Highway* h);
 
+    ~HighwayPatrol();
+    HighwayPatrol(const HighwayPatrol&);
+    HighwayPatrol& operator=(HighwayPatrol&);
+
+    void scanHighway(Highway* h);
     void pullOver( Vehicle* v, bool willArrest, Highway* h );
 };

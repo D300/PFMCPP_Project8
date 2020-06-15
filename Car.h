@@ -4,7 +4,11 @@
 struct Car : public Vehicle
 {
     Car(const std::string& s);
-    void closeWindows();
+    
+    ~Car();
+    Car(const Car&);
+    Car& operator=(const Car&);
 
+    void closeWindows();
     void tryToEvade();
 };
