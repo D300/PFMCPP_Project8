@@ -87,6 +87,8 @@ int main()
      
      You must implement these special member functions for all of the classes that derive from Vehicle. - x
 
+    // but not for Motorcycle?
+
      v-table warnings can be resolved by eliminating header file implementations. - x
      */
     
