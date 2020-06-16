@@ -74,3 +74,4 @@ void Highway::removeVehicle(Vehicle* v)
                    vehicles.end());
     removeVehicleInternal(v);
 }
+

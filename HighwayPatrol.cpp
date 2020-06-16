@@ -7,9 +7,7 @@
 HighwayPatrol::HighwayPatrol() : Vehicle("HighwayPatrol") { }
 
 HighwayPatrol::~HighwayPatrol() = default;
-
 HighwayPatrol::HighwayPatrol(const HighwayPatrol&) = default;
-
 HighwayPatrol& HighwayPatrol::operator=(HighwayPatrol&) = default;
 
 void HighwayPatrol::scanHighway(Highway* h)

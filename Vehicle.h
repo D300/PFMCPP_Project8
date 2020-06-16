@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 
+struct HighwayPatrol;
 struct Vehicle
 {
     Vehicle(const std::string& n) : name(n) { }
@@ -23,6 +24,8 @@ struct Vehicle
         setSpeed(100);
     }
 protected:
+    
+    friend HighwayPatrol;
     int speed = 0;
     std::string name;
 };
